@@ -42,6 +42,9 @@ int main()
 #ifdef RUN_SP
 	run(std::ptr_fun(spirit::parse), "spirit", str);
 #endif
+#ifdef RUN_XP
+	run(std::ptr_fun(xpressive::parse), "xpressive", str);
+#endif
 
 	return 0;
 }
