@@ -40,7 +40,7 @@ int main()
 {
 //	test();
 #ifdef RUN_SP
-	run(std::ptr_fun(spirit::parse), "xpressive", str);
+	run(std::ptr_fun(spirit::parse), "spirit", str);
 #endif
 
 	return 0;
