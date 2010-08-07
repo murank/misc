@@ -115,10 +115,10 @@ DEFINE_TEST(quoted_string)
 	int quoted_pairs[] = {0x00, 0x7f, 0x80, 0xff};
 
 	std::string str;
-	for(int qdtext_i=0; qdtext_i<sizeof(qdtexts)/sizeof(int); ++qdtext_i) {
+	for(size_t qdtext_i=0; qdtext_i<sizeof(qdtexts)/sizeof(int); ++qdtext_i) {
 		int qdtext_c = qdtexts[qdtext_i];
 
-		for(int quoted_pair_i=0; quoted_pair_i<sizeof(quoted_pairs)/sizeof(int); ++quoted_pair_i) {
+		for(size_t quoted_pair_i=0; quoted_pair_i<sizeof(quoted_pairs)/sizeof(int); ++quoted_pair_i) {
 			int quoted_pair_c = quoted_pairs[quoted_pair_i];
 
 //			std::cout << std::hex << qdtext_c << "," << quoted_pair_c << std::endl;
@@ -141,10 +141,10 @@ DEFINE_TEST(quoted_string)
 		}
 	}
 
-	for(int qdtext_i=0; qdtext_i<sizeof(qdtexts)/sizeof(int); ++qdtext_i) {
+	for(size_t qdtext_i=0; qdtext_i<sizeof(qdtexts)/sizeof(int); ++qdtext_i) {
 		int qdtext_c = qdtexts[qdtext_i];
 
-		for(int quoted_pair_i=0; quoted_pair_i<sizeof(quoted_pairs)/sizeof(int); ++quoted_pair_i) {
+		for(size_t quoted_pair_i=0; quoted_pair_i<sizeof(quoted_pairs)/sizeof(int); ++quoted_pair_i) {
 			int quoted_pair_c = quoted_pairs[quoted_pair_i];
 
 //			std::cout << std::hex << qdtext_c << "," << quoted_pair_c << std::endl;
@@ -172,10 +172,10 @@ DEFINE_TEST(quoted_string)
 		}
 	}
 
-	for(int qdtext_i1=0; qdtext_i1<sizeof(qdtexts)/sizeof(int); ++qdtext_i1) {
+	for(size_t qdtext_i1=0; qdtext_i1<sizeof(qdtexts)/sizeof(int); ++qdtext_i1) {
 		int qdtext_c1 = qdtexts[qdtext_i1];
 
-		for(int qdtext_i2=0; qdtext_i2<sizeof(qdtexts)/sizeof(int); ++qdtext_i2) {
+		for(size_t qdtext_i2=0; qdtext_i2<sizeof(qdtexts)/sizeof(int); ++qdtext_i2) {
 			int qdtext_c2 = qdtexts[qdtext_i2];
 
 //			std::cout << std::hex << qdtext_c1 << "," << qdtext_c2 << std::endl;
@@ -199,10 +199,10 @@ DEFINE_TEST(quoted_string)
 		}
 	}
 
-	for(int quoted_pair_i1=0; quoted_pair_i1<sizeof(quoted_pairs)/sizeof(int); ++quoted_pair_i1) {
+	for(size_t quoted_pair_i1=0; quoted_pair_i1<sizeof(quoted_pairs)/sizeof(int); ++quoted_pair_i1) {
 		int quoted_pair_c1 = quoted_pairs[quoted_pair_i1];
 
-		for(int quoted_pair_i2=0; quoted_pair_i2<sizeof(quoted_pairs)/sizeof(int); ++quoted_pair_i2) {
+		for(size_t quoted_pair_i2=0; quoted_pair_i2<sizeof(quoted_pairs)/sizeof(int); ++quoted_pair_i2) {
 			int quoted_pair_c2 = quoted_pairs[quoted_pair_i2];
 
 //			std::cout << std::hex << quoted_pair_c1 << "," << quoted_pair_c2 << std::endl;

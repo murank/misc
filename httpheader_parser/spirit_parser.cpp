@@ -475,7 +475,7 @@ struct rfc2616 : qi::grammar<Iterator>
 		warning_value = warn_code >> SP >> warn_agent >> SP >> warn_text >> -( SP >> warn_date);
 		Warning = qi::lit("Warning") >> ':' >> list_1(warning_value);
 
-		received_by = ( ( IP_literal | IPv4address | *( unreserved | pct_encoded | sub_delims - ',' ) ) >> -( ':' >> port ) ) | pseudonym;
+		received_by = ( ( IP_literal | IPv4address | *( unreserved | pct_encoded | ( sub_delims - ',' ) ) ) >> -( ':' >> port ) ) | pseudonym;
 //		received_by = ( host >> -( ':' >> port ) ) | pseudonym;
 		protocol_name = token;
 		protocol_version = token;
