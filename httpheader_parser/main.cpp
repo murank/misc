@@ -28,10 +28,11 @@ std::string str("GET / HTTP/1.1\r\n"
 template <typename FUNC>
 void run_impl(FUNC f, const char* type, const std::string& header) {
 	boost::timer t;
+	volatile size_t failure_count = 0;
 
 	for(int i=0; i<10000; ++i) {
 		if(!f(header)) {
-			std::cout << "failure" << std::endl;
+			++failure_count;
 		}
 	}
 
@@ -47,6 +48,7 @@ void run(const std::string& header) {
 	run_impl(std::ptr_fun(xpressive::parse), "xpressive", header);
 #endif
 
+	std::cout << std::endl;
 }
 
 int main()
