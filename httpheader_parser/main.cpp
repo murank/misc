@@ -29,8 +29,10 @@ template <typename FUNC>
 void run(FUNC f, const char* type, const std::string& header) {
 	boost::timer t;
 
-	if(!f(header)) {
-		std::cout << "failure" << std::endl;
+	for(int i=0; i<10000; ++i) {
+		if(!f(header)) {
+			std::cout << "failure" << std::endl;
+		}
 	}
 
 	std::cout << type << ": " << t.elapsed() << " sec" << std::endl;
