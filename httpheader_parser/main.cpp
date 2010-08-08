@@ -26,7 +26,7 @@ std::string str("GET / HTTP/1.1\r\n"
 		"\r\n");
 
 template <typename FUNC>
-void run(FUNC f, const char* type, const std::string& header) {
+void run_impl(FUNC f, const char* type, const std::string& header) {
 	boost::timer t;
 
 	for(int i=0; i<10000; ++i) {
@@ -38,15 +38,21 @@ void run(FUNC f, const char* type, const std::string& header) {
 	std::cout << type << ": " << t.elapsed() << " sec" << std::endl;
 }
 
+void run(const std::string& header) {
+
+#ifdef RUN_SP
+	run_impl(std::ptr_fun(spirit::parse), "spirit", header);
+#endif
+#ifdef RUN_XP
+	run_impl(std::ptr_fun(xpressive::parse), "xpressive", header);
+#endif
+
+}
+
 int main()
 {
 //	test();
-#ifdef RUN_SP
-	run(std::ptr_fun(spirit::parse), "spirit", str);
-#endif
-#ifdef RUN_XP
-	run(std::ptr_fun(xpressive::parse), "xpressive", str);
-#endif
+	run(str);
 
 	return 0;
 }
