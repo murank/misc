@@ -1,0 +1,5 @@
+
+# Object files in this directory won't be removed (and it's meaningless).
+
+#clean:
+#	rm -f *.o

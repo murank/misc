@@ -55,8 +55,11 @@ section
 
 foreach(d, $(subdirs $(SRC_DIR) $(TEST_DIR)))
 	.SUBDIRS: $(d)
-		clean:
-			rm -f *.o
+		if $(file-exists OMakefile)
+			include OMakefile
+		else
+			clean:
+				rm -f *.o
 
 
 ########################################################################
